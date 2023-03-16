@@ -9,9 +9,10 @@ function init() {
 }
 
 function drawLine(branch, depth = 0) {
+  if (depth > 20) return
   const end = getEndPoint(branch)
   lineTo(branch.start, end)
-  if (depth < 2 || Math.random() < 0.4) {
+  if (depth < 7 || Math.random() < 0.5) {
     drawLine({
       start: end,
       length: branch.length + (Math.random() * 10 - 5),
@@ -19,7 +20,7 @@ function drawLine(branch, depth = 0) {
     }, depth + 1)
   }
 
-  if (depth < 2 || Math.random() < 0.4) {
+  if (depth < 2 || Math.random() < 0.5) {
     drawLine({
       start: end,
       length: branch.length + (Math.random() * 10 - 5),
